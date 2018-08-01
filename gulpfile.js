@@ -13,11 +13,6 @@ var   gulp        = require('gulp'),
       browserSync = require('browser-sync').create();
 
 
-// As a developer, I should be able to run the gulp scripts command at the
-// command line to concatenate, minify, and copy all of the project’s
-// JavaScript files into an all.min.js file that is then copied to
-// the dist/scripts folder.
-
 // concats to app.js and maps the js files
 gulp.task("concatScripts", function(){
   return gulp.src(['js/**/*.js','js/*.js'])
