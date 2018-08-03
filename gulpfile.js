@@ -75,9 +75,12 @@ gulp.task("build",["clean"], function(){
 // Found implementation here: https://stackoverflow.com/questions/43415506/how-to-make-a-refresh-in-browser-with-gulp
 // watches for sass files updates then launch "styles" and reload the browser
 gulp.task('serve', function() {
-  browserSync.init({
-      server: "./"
-  });
+  setTimeout(function(){   // 5s setTimeout in order to wait for the images process before launching the browser 
+    browserSync.init({
+        server: "./"
+    });
+  },5000)
+
   gulp.watch(['sass/*.scss','sass/**/*.sass'],['styles'], function(){
     gulp.pipe(browserSync.stream());
   });
