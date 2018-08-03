@@ -22,7 +22,7 @@ gulp.task("concatScripts", function(){
   .pipe(gulp.dest("js"));
 })
 
-// run "concatScripts", then minifies js/app.js to dist/scripts/all.min.js 
+// run "concatScripts", then minifies js/app.js to dist/scripts/all.min.js
 gulp.task("minifyScripts",["concatScripts"], function(){
   return gulp.src('js/app.js')
   .pipe(uglify())
@@ -54,12 +54,11 @@ gulp.task("styles",["minifyCss"])
 
 
 // optimize the size of the project’s JPEG and PNG files, and then copy those optimized images to the dist/content folder
-gulp.task('image', function () {
+gulp.task('images', function () {
   gulp.src('./images/*')
     .pipe(image())
     .pipe(gulp.dest('dist/content'));
 });
-
 
 // deletes all of the files and folders in the dist folder.
 gulp.task('clean', function () {
@@ -67,11 +66,10 @@ gulp.task('clean', function () {
 });
 
 
-// runs "clean" first, then "scripts", "styles", and "image" 
+// runs "clean" first, then "scripts", "styles", and "image"
 gulp.task("build",["clean"], function(){
-  gulp.start(["scripts", "styles", "image"]);
+  gulp.start([ "images","scripts", "styles"]);
 })
-
 
 
 // Found implementation here: https://stackoverflow.com/questions/43415506/how-to-make-a-refresh-in-browser-with-gulp
